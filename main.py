@@ -3,9 +3,9 @@ from maqueen import Maqueen
 from microbit import *
 import utime
 bot = Maqueen()
-fast = 200
+fast = 255
 slow = 100
-slowest = 100
+slowest = 200
 lastdir = True
 while True:
     if microphone.current_event() == SoundEvent.LOUD or button_a.was_pressed():
