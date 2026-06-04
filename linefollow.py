@@ -1,3 +1,4 @@
+
 from maqueen import Maqueen
 from microbit import *
 import utime
@@ -42,4 +43,3 @@ while True:
                 bot.motor_left(0)
                 bot.motor_right(0)
                 break
-
