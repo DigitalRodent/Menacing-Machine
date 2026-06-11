@@ -1,7 +1,7 @@
 
-from maqueen import Maqueen
+from Code.maqueen import Maqueen
 from microbit import *
-import utime
+
 bot = Maqueen()
 fast = 255
 slow = 50
