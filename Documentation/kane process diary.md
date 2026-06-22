@@ -18,7 +18,7 @@
 
 # # 2026-06-22
 - We learnt about wiring diagrams
-- We learnt about eh importance of capacitiors and resistors within a circuit
+- We learnt about the importance of capacitiors and resistors within a circuit
 - Class diagram in progress
 - Seb sighed
 - Sebastian did anything but work on the assessment
