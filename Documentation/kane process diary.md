@@ -10,8 +10,15 @@
 - The bot struggles to handle sharp turns and intersections. We have deduced this is due to have a limited amount of senors.
 - Seb's attempt to develop a method for it to "scan" the track when deciding and use a very simple algorithm to choose which way to take.
 
-# # 2026-06-4
+# # 2026-06-04
 - I made another track that will live at school for testing purposes.
 - Seb is attempting to improve intersection code, tried to experiment with the compass to see if I could get it to follow a heading.
 - The compass bore no fruit, seb could get the code working bu the inbuild compass was just not accurate enough to be useful.
 - Still struggling with sharp turns and intersections, trying to figure out how it should scan.
+
+# # 2026-06-22
+- We learnt about wiring diagrams
+- We learnt about eh importance of capacitiors and resistors within a circuit
+- Class diagram in progress
+- Seb sighed
+- Sebastian did anything but work on the assessment
