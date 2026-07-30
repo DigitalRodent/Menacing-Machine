@@ -1,45 +1,51 @@
 from maqueen import Maqueen
 from microbit import *
-import utime
+import utime as u
+import music
 bot = Maqueen()
 fast = 255
 slow = 50
 slowest = 200
-lastdir = True
-# True is Right, False is Left
-
 while True:
     if microphone.current_event() == SoundEvent.LOUD or button_a.was_pressed():
         while True:
-            # Full white
-            if bot.line_left() and bot.line_right():
-                bot.motor_left(0)
-                bot.motor_right(0)
-                if not lastdir:
-                    bot.motor_right(slowest, 1)
-                    bot.motor_left(0)
-                else:
-                    bot.motor_left(slowest, 1)
+            distance_in_cm = bot.ultrasound_measure()
+            print(distance_in_cm)
+            if distance_in_cm == -1:
+                print('lol')
+            elif distance_in_cm > 1:
+                bot.motor_right(255)
+                bot.motor_left(255)
+                print('WHOA')
+                music.stop()
+            else:
+                going = 1
+                while going:
+                    distance_in_cm = bot.ultrasound_measure()
+                    print(distance_in_cm)
+                    bot.motor_right(50,1)
+                    bot.motor_left(50,1)
+                    u.sleep(0.3)
                     bot.motor_right(0)
-            # White left
-            if not bot.line_left() and bot.line_right():
-                bot.motor_right(fast)
-                bot.motor_left(slow, 1)
-                display.show(Image.SKULL)
-                lastdir = 1
-            # White right
-            if not bot.line_right() and bot.line_left():
-                bot.motor_left(fast)
-                bot.motor_right(slow, 1)
-                display.show(Image.HAPPY)
-                lastdir = 0
-            # Full black
-            if not bot.line_left() and not bot.line_right():
-                bot.motor_right(fast)
-                bot.motor_left(fast)
-                display.show(Image.SAD)
-            if microphone.current_event() == SoundEvent.LOUD or button_a.was_pressed():
-                bot.motor_left(0)
+                    bot.motor_left(50)
+                    u.sleep(0.45)
+                    bot.motor_right(50)
+                    u.sleep(0.1)
+                    bot.motor_left(0)
+                    u.sleep(0.75)
+                    bot.motor_left(50)
+                    
+                    u.sleep(0.1)
+                    bot.motor_left(0)
+                    u.sleep(0.6)
+                    if distance_in_cm == -1:
+                        print('hi')
+                        break
+                    if distance_in_cm > 4:
+                        print('hi')
+                        break
+                    
+                bot.motor_left(50)
+                u.sleep(0.3)
                 bot.motor_right(0)
-                break
-
+                u.sleep(0.75)

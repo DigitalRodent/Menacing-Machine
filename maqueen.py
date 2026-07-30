@@ -83,7 +83,7 @@ class Maqueen:
         buf[0] = 0x02
         buf[1] = direction
         buf[2] = speed
-        i2c.wr	ite(0x10, buf)
+        i2c.write(0x10, buf)
 
     # return: {0,1}
     def line_left(self):

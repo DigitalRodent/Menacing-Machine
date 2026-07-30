@@ -18,3 +18,9 @@
 - Will continue working hard!
 - Little disquieted
 - Used my brain :)
+
+# # 2026-07-30
+- Began work on object avoidance code, have a working demo but need to tweak some values and compact the code.
+- Turns and intersections are solved now, as long as it doesn't encounter a loop =)
+- Will tweak avoidance values
+- Used my brain :)
