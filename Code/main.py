@@ -13,7 +13,7 @@ while True:
             print(distance_in_cm)
             if distance_in_cm == -1:
                 print('lol')
-            elif distance_in_cm > 2:
+            elif distance_in_cm > 1:
                 bot.motor_right(255)
                 bot.motor_left(255)
                 print('WHOA')
@@ -48,4 +48,22 @@ while True:
                 bot.motor_left(50)
                 u.sleep(0.3)
                 bot.motor_right(0)
+<<<<<<< HEAD:main.py
                 u.sleep(0.75)
+=======
+                break
+distance = 0
+
+def on_forever():
+    global distance
+    distance = Maqueen.read_ultrasonic(DigitalPin.P13, DigitalPin.P14)
+    basic.show_number(distance)
+    if distance < 15 and distance != 0:
+        Maqueen.control_motor_stop(Maqueen.MyEnumMotor.ALL_MOTOR)
+        basic.pause(1000)
+    else:
+        Maqueen.control_motor(Maqueen.MyEnumMotor.ALL_MOTOR,
+            Maqueen.MyEnumDir.FORWARD,
+            20)
+basic.forever(on_forever)
+>>>>>>> 92e8971f07bdd45fb048c06b0717cc895395a3b0:Code/main.py
