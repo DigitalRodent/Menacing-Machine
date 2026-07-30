@@ -17,8 +17,19 @@
 - Still struggling with sharp turns and intersections, trying to figure out how it should scan.
 
 # # 2026-06-22
-- We learnt about wiring diagrams
-- We learnt about the importance of capacitiors and resistors within a circuit
-- Class diagram in progress
-- Seb sighed
-- Sebastian did anything but work on the assessment
+- We learnt about wiring diagrams.
+- We learnt about the importance of capacitiors and resistors within a circuit.
+- Class diagram in progress.
+- Seb sighed.
+- Sebastian did anything but work on the assessment.
+
+# # 2026-07-30
+- Sebastian forgot the menacing machine at home, using spare robot.
+- Started on the class diagrams.
+- Assigned new code between us.
+- Obstacle avoidance code has lobotomised our little fella, working on repairing his mind.
+- Discovered possible motor issue in spare robot, not ours so no issue.
+- Sebastian said 67
+- Finishing up the obstacle avoidance code.
+  
+ 
