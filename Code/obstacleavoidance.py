@@ -16,4 +16,4 @@ def on_forever():
         Maqueen.control_motor(Maqueen.MyEnumMotor.ALL_MOTOR,
             Maqueen.MyEnumDir.FORWARD,
             20)
-basic.forever(on_forever)
+basic.forever(on_forever
