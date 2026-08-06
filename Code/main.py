@@ -16,21 +16,19 @@ lastdir = True # True is Right, False is Left
 while True:
     if microphone.current_event() == SoundEvent.LOUD or button_a.was_pressed(): # Turn on main loop if microphone detects sound or A is presse
         while True:
-#             distance_in_cm = bot.ultrasound_measure()
-#             print(distance_in_cm)
-#             if distance_in_cm in (0, 0.5):
-#                 while seecount < 10: # If we've seen it less than 10 times, measure again.
-#                     distance_in_cm = bot.ultrasound_measure()
-#                     if distance_in_cm in (0, 3):
-#                         seecount += 1
-#                     if distance_in_cm > 3:
-#                         break
-#                         seecount = 0 # If its more than 3 cm away, ignore and set sightings to 0.
-#                 if seecount >= 10:
-#                     with open("output.txt", "w", encoding="utf-8") as file:
-#                     file.write(f"Avoided object at {distance_in_cm} after {seecount} sightings")
-#                     objectavoidance.avoid()
-#                     seecount = 0
+            distance_in_cm = bot.ultrasound_measure()
+            print(distance_in_cm)
+            if distance_in_cm in (0, 0.5):
+                while seecount < 10: # If we've seen it less than 10 times, measure again.
+                    distance_in_cm = bot.ultrasound_measure()
+                    if distance_in_cm in (0, 3):
+                        seecount += 1
+                    if distance_in_cm > 3:
+                        break
+                        seecount = 0 # If its more than 3 cm away, ignore and set sightings to 0.
+                    if seecount >= 10:
+                        objectavoidance.avoid()
+                        seecount = 0
                 
             # Full white detected aka no line
             if bot.line_left() and bot.line_right():
