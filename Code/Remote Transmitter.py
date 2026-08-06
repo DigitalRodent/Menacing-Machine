@@ -22,6 +22,13 @@ signal = 0
 radio.set_group(1)
 signal = 0
 
+while True:
+    if button_a.is_pressed():
+        display.show(Image.HAPPY)
+    if button_b.is_pressed():
+        display.show(Image.SAD)
+        break
+
 def on_forever():
     radio.send_number(signal)
 basic.forever(on_forever)
