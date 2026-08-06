@@ -1,3 +1,4 @@
+from Code.main import RoboGobo
 from maqueen import Maqueen
 from microbit import *
 
@@ -43,5 +44,5 @@ def on_forever():
         music.play(music.tone_playable(262, music.beat(BeatFraction.WHOLE)),
             music.PlaybackMode.UNTIL_DONE)
     else:
-        basic.clear_screen()
+        RoboGobo()
 basic.forever(on_forever)
