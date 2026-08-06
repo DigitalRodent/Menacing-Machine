@@ -37,7 +37,7 @@ while True:
                 while True: # If full white, attempt to reverse and exit the dead end
                     bot.left(0)
                     bot.right(0)
-                    if nocount < 2500:
+                    if nocount < 5:
                         print(nocount)
                         if not lastdir:
                             bot.right(slowest, 1)
@@ -55,11 +55,11 @@ while True:
                         bot.left(slow, 1)
                         u.sleep(0.425)
                         if bot.line_left() and bot.line_right():
-                            print('Still going')
+                            print('Still going') # If we haven't found the line, begin the next sweep
                         else:
                             break
                             nocount = 0
-                            sweepcount = 0
+                            sweepcount = 0 # If we have, reset all variables and go back to standard programming
                         bot.left(fast)
                         bot.right(slow, 1)
                         u.sleep(0.425)
@@ -71,14 +71,31 @@ while True:
                             nocount = 0
                             sweepcount = 0
                         sweepcount += 1
-                        if sweepcount == 6:
-                            start_time = u.ticks_ms()
+                        if sweepcount == 6: # If we've sweeped six times:
+                            start_time = u.ticks_ms() # Begin stopwatch
                             while True:
                                 bot.left(50)
-                                bot.right(0)
+                                bot.right(0) # Spin right
                                 end_time = u.ticks_ms()
-                                if end_time - start_time == 2500:
-                                    break
+                                end_time - start_time = TimeSinceSpin# Record time since stopwatch started
+                                print(f'{TimeSinceSpin} Spin Measure')
+                                straight_start = u.ticks_ms() # Start stopwatch 2 for the straight
+                                if TimeSinceSpin > 3500 : # If the stopwatch reads 3500 miliseconds or more
+                                    bot.left(50) # Go forward
+                                    bot.right(50)
+                                    if bot.line_left() and bot.line_right(): # If we dont have a line
+                                        print('Still forward') # Keep going forward
+                                    else: # If we do
+                                            break # Standard programming
+                                    straight_end = u.ticks_ms()
+                                    straight_end - straight_start = TimeSinceStraight
+
+                                    print(f'{TimeSinceStraight} Straight Measure')
+                                    if TimeSinceStraight > 1500:# If we've been going straight for 1500 miliseconds, start sweeping code again
+                                        print('Haha')
+                                        sweepcount = 0
+                                    else:
+                                        print('Go Still My Boy')
                                 if bot.line_left() and bot.line_right():
                                     print('Spinning still')
                                 else:
