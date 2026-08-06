@@ -8,7 +8,8 @@ bot = Maqueen()
 fast = 255
 slow = 50
 slowest = 200 # This isn't actually the slowest speed, but I can't be bothered to refactor in thonny.
-seecount = 0
+seecount = 0 # Define counts for various purposes
+sweepcount = 0
 nocount = 0
 lastdir = True # True is Right, False is Left
 # Turn commands
@@ -70,6 +71,22 @@ while True:
                             nocount = 0
                             sweepcount = 0
                         sweepcount += 1
+                        if sweepcount == 6:
+                            start_time = u.ticks_ms()
+                            while True:
+                                bot.left(50)
+                                bot.right(0)
+                                end_time = u.ticks_ms()
+                                if end_time - start_time == 2500:
+                                    break
+                                if bot.line_left() and bot.line_right():
+                                    print('Spinning still')
+                                else:
+                                    sweepcount = 0
+                                    nocount = 0
+                                    break
+                            sweepcount = 0
+                            
                     
                         
 

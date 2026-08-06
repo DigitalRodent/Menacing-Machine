@@ -36,25 +36,45 @@ while True:
                 while True: # If full white, attempt to reverse and exit the dead end
                     bot.left(0)
                     bot.right(0)
-                    if not lastdir:
-                        bot.right(slowest, 1)
-                        bot.left(0)
-                    else:
-                        bot.left(slowest, 1)
-                        bot.right(0)
-                    if bot.line_left() and bot.line_right(): # If still full white, add to no count.
-                        nocount += 1
-                    else:
-                        break
-                    
-                    if nocount == 255 # Begin line finding code!!
+                    if nocount < 2500:
+                        print(nocount)
+                        if not lastdir:
+                            bot.right(slowest, 1)
+                            bot.left(0)
+                        else:
+                            bot.left(slowest, 1)
+                            bot.right(0)
+                        if bot.line_left() and bot.line_right(): # If still full white, add to no count.
+                            nocount += 1
+                        else:
+                            break
+                            nocount = 0
+                    else:# Begin line finding code!!
                         bot.right(fast)
                         bot.left(slow, 1)
                         u.sleep(0.425)
+                        if bot.line_left() and bot.line_right():
+                            print('Still going')
+                        else:
+                            break
+                            nocount = 0
+                            sweepcount = 0
                         bot.left(fast)
                         bot.right(slow, 1)
                         u.sleep(0.425)
                         # SWEEEEEPPPP!
+                        if bot.line_left() and bot.line_right():
+                            print('Still going')
+                        else:
+                            break
+                            nocount = 0
+                            sweepcount = 0
+                        sweepcount += 1
+                        if sweepcount == 6:
+                            bot.left(50)
+                            bot.right(0)
+                            u.sleep(2.55)
+                            sweepcount = 0
                     
                         
 
@@ -78,6 +98,8 @@ while True:
                 bot.left(0)
                 bot.right(0)
                 break
+
+
 
 
 
