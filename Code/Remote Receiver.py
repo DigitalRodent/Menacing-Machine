@@ -29,20 +29,10 @@ radio.set_group(1)
 
 def on_forever():
     if signal == 1:
-        basic.show_leds("""
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            """)
-        basic.clear_screen()
-        basic.pause(500)
+        display.show(Image.HAPPY)
+
     elif signal == 2:
-        music.play(music.tone_playable(330, music.beat(BeatFraction.WHOLE)),
-            music.PlaybackMode.UNTIL_DONE)
-        music.play(music.tone_playable(262, music.beat(BeatFraction.WHOLE)),
-            music.PlaybackMode.UNTIL_DONE)
+        display.show(Image.SAD)
     else:
-        RoboGobo()
+        display.show(Image.SKULL)
 basic.forever(on_forever)

@@ -6,9 +6,11 @@ bot = Maqueen()
 while True:
     if button_a.is_pressed():
         display.show(Image.HAPPY)
-    if button_b.is_pressed():
+    elif button_b.is_pressed():
         display.show(Image.SAD)
         break
+    elif button_ab.is_pressed():
+        display.show(Image.SKULL)
 
 def on_button_pressed_a():
     global signal
