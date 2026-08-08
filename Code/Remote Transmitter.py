@@ -5,6 +5,7 @@ bot = Maqueen()
 radio.on()
 def signal_send():
     
+
 signal = 0
 radio.config(group=1)
 signal = 0
@@ -17,5 +18,4 @@ while True:
     if button_b.was_pressed():
         signal = 2
         signal_send()
-
 

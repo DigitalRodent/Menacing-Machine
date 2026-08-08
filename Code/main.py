@@ -23,7 +23,6 @@ print('Startup')
 while True:
     check_for_message()
     if running:
-        bot_controller.RoboGobo(check_for_message)
+        bot_controller.RoboGobo(check_for_message)g
     else:
         u = None 
-    
