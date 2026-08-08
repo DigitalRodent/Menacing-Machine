@@ -69,7 +69,7 @@ class Maqueen:
 
     # speed: {0-255}
     # direction: {0,1}
-    def left(self, speed=0, direction=0):
+    def motor_left(self, speed=0, direction=0):
         buf = bytearray(3)
         buf[0] = 0x00
         buf[1] = direction
@@ -78,7 +78,7 @@ class Maqueen:
 
     # speed: {0-255}
     # direction: {0,1}
-    def right(self, speed=0, direction=0):
+    def motor_right(self, speed=0, direction=0):
         buf = bytearray(3)
         buf[0] = 0x02
         buf[1] = direction
@@ -142,10 +142,3 @@ class Maqueen:
         return int(d)
 
 # robot = Maqueen()
-
-
-
-
-
-
-
