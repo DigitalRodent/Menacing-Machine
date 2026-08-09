@@ -29,15 +29,13 @@ class Robot:
                 if display.read_light_level() < 2:
                     bot.led_right(1)
                     bot.led_left(1)
-                    for y in range(5):
-                        for x in range(5):
-                            display.set_pixel(x,y,9)
+                    
                 else:
                     bot.led_right(0)
                     bot.led_left(0)
-                    for y in range(5):
-                        for x in range(5):
-                            display.set_pixel(x,y,0)
+                # Speedo
+                z_strength = accelerometer.get_z()
+                display.scroll(z_strength)      # What better way to measure speed than the accelerometer?                 
                 # Radio receiver
                 if check_messages:
                     return check_messages()

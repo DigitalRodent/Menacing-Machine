@@ -14,7 +14,7 @@ def check_for_message():
     message = radio.receive()
     if message == '1':
         print('Received 1')
-        speech.say('Kill Blencowe')
+        speech.say('Oh Blencowe')
         running = True
     elif message == '2':
         print('Received 2')
