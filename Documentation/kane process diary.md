@@ -10,8 +10,32 @@
 - The bot struggles to handle sharp turns and intersections. We have deduced this is due to have a limited amount of senors.
 - Seb's attempt to develop a method for it to "scan" the track when deciding and use a very simple algorithm to choose which way to take.
 
-# # 2026-06-4
+# # 2026-06-04
 - I made another track that will live at school for testing purposes.
 - Seb is attempting to improve intersection code, tried to experiment with the compass to see if I could get it to follow a heading.
 - The compass bore no fruit, seb could get the code working bu the inbuild compass was just not accurate enough to be useful.
 - Still struggling with sharp turns and intersections, trying to figure out how it should scan.
+
+# # 2026-07-26
+- We learnt about wiring diagrams.
+- We learnt about the importance of capacitiors and resistors within a circuit.
+- Class diagram in progress.
+- Seb sighed.
+- Sebastian did anything but work on the assessment.
+
+# # 2026-07-30
+- Sebastian forgot the menacing machine at home, using spare robot.
+- Started on the class diagrams.
+- Assigned new code between us.
+- Obstacle avoidance code has lobotomised our little fella, working on repairing his mind.
+- Discovered possible motor issue in spare robot, not ours so no issue.
+- Sebastian said 67
+- Finishing up the obstacle avoidance code.
+
+# # 2026-08-07
+- Continuing object avoidance code
+- Realised how hard true obstacle avoidance is
+
+# # 2026-08-09
+- Completing all code and documentation
+- I reorganise the github because it was a complete mess with redundant files
