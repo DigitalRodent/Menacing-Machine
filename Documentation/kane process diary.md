@@ -41,3 +41,7 @@
 - I organised and refactored the github because it was a complete mess with redundant files
 - Reorganisation completed, epic
 - deciding if class diagram is really worth my time
+- sebastian has lost his mind
+- funbled around with the radio code
+- some wacky code somehow ended up on the transmitter micro:bit and ruined everyhing, no idea how this happened
+

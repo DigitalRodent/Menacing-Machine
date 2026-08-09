@@ -3,7 +3,6 @@ from microbit import *
 import radio
 bot = Maqueen()
 radio.on()
-def signal_send():
     
 
 signal = 0
