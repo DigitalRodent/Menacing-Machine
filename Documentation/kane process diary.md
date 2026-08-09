@@ -43,5 +43,6 @@
 - deciding if class diagram is really worth my time
 - sebastian has lost his mind
 - funbled around with the radio code
-- some wacky code somehow ended up on the transmitter micro:bit and ruined everyhing, no idea how this happened
+- some wacky code somehow ended up on the transmitter micro:bit and ruined everything, no idea how this happened
+- reddit is a very powerful tool
 
