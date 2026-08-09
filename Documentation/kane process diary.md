@@ -38,4 +38,6 @@
 
 # # 2026-08-09
 - Completing all code and documentation
-- I reorganise the github because it was a complete mess with redundant files
+- I organised and refactored the github because it was a complete mess with redundant files
+- Reorganisation completed, epic
+- deciding if class diagram is really worth my time
