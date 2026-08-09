@@ -1,4 +1,3 @@
-
 from maqueen import Maqueen
 import objectavoidance
 from microbit import *
@@ -19,9 +18,41 @@ class Robot:
             lastdir = True # True is Right, False is Left
             
             def poll():
+                # Radio receiver
                 if check_messages:
                     return check_messages()
-                return None
+                    return None
+                # Headlights
+                display.read_light_level()
+                if display.read_light_level() < 2:
+                    bot.led_right(1)
+                    bot.led_left(1)
+                    for y in range(5):
+                        for x in range(5):
+                            display.set_pixel(x,y,9)
+                else:
+                    bot.led_right(0)
+                    bot.led_left(0)
+                    for y in range(5):
+                        for x in range(5):
+                            display.set_pixel(x,y,0)
+                # Speedo
+                rightspeed = bot.motor_right()
+                leftspeed = bot.motor_left()
+                desiredspeed = (rightspeed + leftspeed) / 2
+                if desiredspeed <= slow:
+                    for y in range(5,4,-1):
+                        for x in range(5,4,-1):
+                            display.set_pixel(x,y,9)
+                if desiredspeed <= slowest:
+                    for y in range(5,3,-1):
+                        for x in range(5,3,-1):
+                            display.set_pixel(x,y,9)
+                if desiredspeed <= fast:
+                    for y in range(5):
+                        for x in range(5):
+                            display.set_pixel(x,y,9)
+                            
             
             print('INITIATE')
             distance_in_cm = bot.ultrasound_measure()

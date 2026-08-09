@@ -16,13 +16,16 @@ def check_for_message():
         running = True
     elif message == '2':
         print('Received 2')
-        running = False
+        running = False    
     return message
 
 print('Startup')
 while True:
     check_for_message()
     if running:
-        bot_controller.RoboGobo(check_for_message)g
+        bot_controller.RoboGobo(check_for_message)
     else:
         u = None 
+
+
+
