@@ -3,6 +3,7 @@ import objectavoidance
 from microbit import *
 import utime as u
 import radio
+import speech
 bot = Maqueen()
 
 class Robot:
@@ -18,12 +19,13 @@ class Robot:
             lastdir = True # True is Right, False is Left
             
             def poll():
-                # Radio receiver
-                if check_messages:
-                    return check_messages()
-                    return None
+                print('POLLING')
+                print('POLLING')
+                print('POLLING')
+                print('POLLING')
                 # Headlights
                 display.read_light_level()
+                print('light')
                 if display.read_light_level() < 2:
                     bot.led_right(1)
                     bot.led_left(1)
@@ -36,40 +38,22 @@ class Robot:
                     for y in range(5):
                         for x in range(5):
                             display.set_pixel(x,y,0)
-                # Speedo
-                rightspeed = bot.motor_right()
-                leftspeed = bot.motor_left()
-                desiredspeed = (rightspeed + leftspeed) / 2
-                if desiredspeed <= slow:
-                    for y in range(5,4,-1):
-                        for x in range(5,4,-1):
-                            display.set_pixel(x,y,9)
-                if desiredspeed <= slowest:
-                    for y in range(5,3,-1):
-                        for x in range(5,3,-1):
-                            display.set_pixel(x,y,9)
-                if desiredspeed <= fast:
-                    for y in range(5):
-                        for x in range(5):
-                            display.set_pixel(x,y,9)
+                # Radio receiver
+                if check_messages:
+                    return check_messages()
+                    return None
+                    print('messages')
+                
+                    
                             
             
             print('INITIATE')
             distance_in_cm = bot.ultrasound_measure()
             print(distance_in_cm)
             
-            if distance_in_cm in (0, 0.5): # If something is within half a cm...
-                while seecount < 10: # If we've seen it less than 10 times, measure again.
-                    poll()
-                    distance_in_cm = bot.ultrasound_measure()
-                    if distance_in_cm in (0, 3):
-                        seecount += 1
-                    if distance_in_cm > 3:
-                        break
-                        seecount = 0 # If its more than 3 cm away, ignore and set sightings to 0.
-                    if seecount >= 10:
-                        objectavoidance.avoid() # Avoid it
-                        seecount = 0
+            if distance_in_cm in (0, 3): # If something is within (x, y) cm...
+                objectavoidance.avoid() # Avoid it
+                seecount = 0
                 
             # Full white detected aka no line
             if bot.line_left() and bot.line_right():
@@ -77,10 +61,10 @@ class Robot:
                     poll()
                     bot.motor_left(0)
                     bot.motor_right(0)
-                    if nocount < 2500:
+                    if nocount < 2500: # If we've been lost for less than 2500 ticks
                         print(nocount)
-                        if not lastdir:
-                            bot.motor_right(slowest, 1)
+                        if not lastdir: #Attempt to find the line by reversing towards the last direction we were heading
+                            bot.motor_right(slowest, 1) 
                             bot.motor_left(0)
                         else:
                             bot.motor_left(slowest, 1)
@@ -99,6 +83,8 @@ class Robot:
                                 nocount = 0
                                 break
                             for i in range(0, 255):
+                                # Spiral Spiral Spiral
+                                # Last ditch effort to find the line
                                 poll()
                                 print(i)
                                 bot.motor_right(i)
@@ -144,9 +130,14 @@ class Robot:
             if not bot.line_left() and not bot.line_right():
                 bot.motor_right(fast)
                 bot.motor_left(fast)
-            if button_a.was_pressed(): # If A is pressed, stop moving and leave the main loop.
+    def RoboSlobo(self): # If B is pressed, stop moving and leave the main loop.
                 bot.motor_left(0)
                 bot.motor_right(0)
+                bot.led_right(0)
+                bot.led_left(0)
+                for y in range(5):
+                    for x in range(5):
+                         display.set_pixel(x,y,0)
 
 
 
