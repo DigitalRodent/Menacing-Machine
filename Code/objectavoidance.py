@@ -4,6 +4,7 @@ bot = Maqueen()
 import utime as u
 import music
 import speech
+# When it detects an object it does robot kung-fu
 def avoid():
     speech.say('Get out of the way my clanker')
     distance_in_cm = bot.ultrasound_measure()
