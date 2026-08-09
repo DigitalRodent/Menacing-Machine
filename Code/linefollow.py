@@ -23,19 +23,15 @@ class Robot:
                 print('POLLING')
                 print('POLLING')
                 print('POLLING')
-                # Headlights
-                display.read_light_level()
                 print('light')
-                if display.read_light_level() < 2:
-                    bot.led_right(1)
-                    bot.led_left(1)
-                    
-                else:
-                    bot.led_right(0)
-                    bot.led_left(0)
                 # Speedo
                 z_strength = accelerometer.get_z()
-                display.scroll(z_strength)      # What better way to measure speed than the accelerometer?                 
+                low_bound = 0
+                high_bound = 9
+                brightness = max(low_bound, min(z_strength//100, high_bound)) 
+                for y in range(5):
+                    for x in range(5):
+                         display.set_pixel(x,y,brightness)
                 # Radio receiver
                 if check_messages:
                     return check_messages()
@@ -144,3 +140,4 @@ class Robot:
 
 
  
+
