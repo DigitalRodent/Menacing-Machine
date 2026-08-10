@@ -5,14 +5,20 @@ import utime as u
 import radio
 import speech
 bot = Maqueen()
+Slobo = False
+fast = 255
+slow = 50
+slowest = 200
 
 class Robot:
     def RoboGobo(self, check_messages=None):
+            global fast
+            global slow
+            global slowest
+            Slobo = False
             radio.on()
             message = radio.receive()
-            fast = 255
-            slow = 50
-            slowest = 200 # This isn't actually the slowest speed, but I can't be bothered to refactor in thonny.
+             # This isn't actually the slowest speed, but I can't be bothered to refactor in thonny.
             seecount = 0 # Define counts for various purposes
             sweepcount = 0
             nocount = 0
@@ -34,7 +40,7 @@ class Robot:
                          display.set_pixel(x,y,brightness)
                 # Radio receiver
                 if check_messages:
-                    return check_messages()
+                    return check_messages()                    
                     return None
                     print('messages')
                 
@@ -124,15 +130,29 @@ class Robot:
             if not bot.line_left() and not bot.line_right():
                 bot.motor_right(fast)
                 bot.motor_left(fast)
+
+                
     def RoboSlobo(self): # If B is pressed, stop moving and leave the main loop.
                 bot.motor_left(0)
                 bot.motor_right(0)
                 bot.led_right(0)
                 bot.led_left(0)
+                global fast
                 for y in range(5):
                     for x in range(5):
                          display.set_pixel(x,y,0)
-
+    def ChangeSpeed(self):
+        global fast
+        global slowest
+        if fast == 255:
+            fast = 100
+            slowest = 75
+            speech.say('Now we wait')
+        else:
+            fast = 255
+            slowest = 200
+            speech.say ('Now we run')
+                
 
 
 

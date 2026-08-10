@@ -16,6 +16,8 @@ def check_for_message():
         print('Received 1')
         speech.say('Oh Blencowe')
         running = True
+        if running:
+            bot_controller.ChangeSpeed()
     elif message == '2':
         print('Received 2')
         running = False
@@ -29,7 +31,8 @@ while True:
         bot_controller.RoboGobo(check_for_message)
     else:
         bot_controller.RoboSlobo()
-        u = None 
+        u = None
+        
 
 
 
